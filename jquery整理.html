@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.2.1.js.css"></script>
+	</head>
+	<body>
+	    <ul>
+	    	<li>1</li>
+	    	<li>2</li>
+	    	<li>3</li>
+	    	<li>4</li>
+	    	<li>5</li>
+	    </ul>
+	    <script type="text/javascript" src="jquery-3.2.1.js.css" ></script>   
+		<script>
+			/*
+			 jQuery：javas的类库www.jquery.com官网，，/jQueryAPI中文文档/    jquery.cuisuifeng.cn
+			 jQuery版本1.n：1.72版本兼容低版本，另外3.n。不兼容低版本，使用了一些HTML5的新增的；
+			 
+			 jQuery选择器：
+			        $('#div') id选择器
+					$('.li') class选择器
+					$('input[type="button"]')  属性选择器
+					$('li[class*="li"]') 属性通配选择器
+					$('li[class^="li"]') 属性开头选择器
+					$('li[class$="li"]') 属性结尾选择器
+					$('li[class!="li"]') 属性排除选择器	
+					$('li:odd') 奇数选择器 （从0开始计数）
+					$('li:even') 偶数选择器 （从0开始计数）
+					$('li:gt(3)') 大于选择器
+					$('li:lt(3)') 小于选择器
+					$('li:eq(3)') 下标选择器
+			 jquery属性：
+					val()  =  vlaue
+					html()  = innerHTML
+					text() = innerText
+					addClass('xxx') => className = 'xxx' 
+					removeClass('xxx') => 删除指定的class名
+					console.log(attr('index'))  -> getAttribute('index')
+					attr('index','1')  -> setAttribute('index','1');
+					***操作表单元素属性：checked，disabled ，统一使用prop
+				 
+			 DOM操作：
+					上一个  prev();
+					下一个  next();
+					子级 children();
+					父级 parent();
+					兄弟级 siblings();
+					第一个 first()
+					最后一  个 last();                       
+		            closest('范围')：逐级向上级元素匹配，并返回最先匹配的元素,也包括自身。
+		            find(必传搜索范围);找到某个元素下的所有子元素 （可以查找某个范围下的所有）
+		            children(支持搜索范围);//只能找一层
+				            父元素.append(要插入的元素)
+					要插入的元素.appendTo(父元素)
+					           如果要继续给要插入的元素添加别的操作，那么appendTo可以直接使用链式操作。
+					
+			               创建：
+						$('<li>') 没内容
+						$('<li>con</li>') 有内容
+			               删除：
+				        remove()
+	                                插入：
+						append();
+						appendTo()
+						prepend():放到某个元素的第一位
+					
+				
+			BOM
+				历史记录的管理 history
+				hash
+				window.location.href
+				search
+				navigator.userAgent
+				浏览器的尺寸
+				滚动距离
+				height()/width() 就是设置的宽高，不支持padding和border
+				innerWidth()/innerHeight() 支持padding 不支持border
+				设置：设置之后总的宽高为固定的某个值（不带border）。
+				outerHeight/outerWidth 支持padding和border(获取的时候还支持margin)
+				设置：设置之后总的宽高为固定的某个值。
+				
+				
+		  jQuery于原生互相转换
+				 原生转jQ对象   $(原生对象)  -> JQ对象 
+				 JQ对象转原生  $('textarea').get(0) -> 原生对象
+				 $('textarea')[下标] -> 原生对象
+		   
+		  
+		  元素位置获取
+				绝对位置(当前元素到页面顶部的位置):
+					offset().left/offset().top
+				当前元素到定位父级的距离：
+					position().top/position().left	
+				滚动距离：
+					scrollTop/scrollLeft
+		运动：在hide或者show中设置时间之后，会有运动效果,改变宽、高 、透明度
+		    $('#box').hide(1000);
+		    $('#box').hide(1000);
+		    $('#box').slideToggle()
+		    $('#box').fadeToggle()
+		    $('#box')'.stop()'.animate({运动属性：属性值}，duration，回调函数)
+		    jQ中的运动是走队列的。 只要使用jQ中的运动，那么就要加stop()
+		
+		事件：
+		     jQ中所有的事件方法全是addEventListener事件绑定的
+		          并且所有的事件方法都是由on()来扩展出来的。
+		          在使用JQ中，碰到事件套事件，那么就会出现，多次触发父级事件的时候
+		          再触发一次子级事件，这个时候子级事件触发的频率跟父级触发是一样的。
+		          on('click.one mouseover',属性({a:arr[i],id:i}),回调函数function(ev){
+		          	*****ev是一个二次封装函数，有的类似原生的方法没有，可以通过ev.orign.prototype查找到原生方法****
+		          })---$('#box').trigger('click.one');
+		             解决：
+			          使用off在子级事件函数前解绑。
+			          ****阻止冒泡与阻止默认行为都是return false; 
+			          * 
+	* 事件监听 , 只要问到JQ几乎必考.
+		
+		1.事件必须绑定在父级身上
+		2.当触发某个事件的时候，通过事件冒泡，使得父级可以从ev.target中监听到当前触发的元素是否为想要的子级
+		3.如果是就执行事件处理函数。
+		$('ul').on('click','li',function(){
+		        $(this).css('background','red');
+	         });
+	      循环
+	         $.each()专门给非JQ对象使用的。（工具方法） $.
+			 * */   
+			console.log($('li'))
+		</script>
+	</body>
+</html>   
