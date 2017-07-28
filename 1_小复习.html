@@ -47,10 +47,13 @@
 		position().top：到定位父级的距离
 		innerHeight():div内容高度，不包含border和padding
 		outerHeight(true);div内容高度+padding+border+margin(参数为TRUE就加margin)
-		children
+		children():该元素的所有子元素
+		prev():该元素的上一个兄弟节点
+		next();该元素的下一个兄弟节点
+		biling()：该元素的所有兄弟节点
 		parents();所有父级元素，如果有参数，就是到该参数为止的父级
 		closest();包括自身，最近的父级，有参数就是到该参数为止的最近的父级
-		index
+		index();
 		find();
 		$.extend(object1，object2);有配置走配置，没配置走默认  ，同ES6的对象方法Object.assign()几乎相同，可以浅克隆，和走配置
 		$.extend(true,object1，object2);深拷贝
