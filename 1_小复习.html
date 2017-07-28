@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+<style>
+#box{
+	width:150px;
+	height: 150px;
+	background: salmon;
+	position: absolute;
+	left:0;
+	top:50px;
+}
+#box2{
+	width:50px;
+	height:50px;
+	background: seagreen;
+}
+</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="box2"></div>
+<script src="jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	
+	/*
+		attr():属性操作，一个参数：获取，两个参数：设置
+		prop()：表单属性操作，一个参数：获取，两个参数：设置
+		css()：元素style设置，一个参数--键值对：批量设置；单个字符串：获取；两个参数：设置
+		text():无参数：获取第一个文本值；有参数：设置第一个文本内容
+		html()：无参数：获取第一个文本值；有参数：设置第一个文本内容
+		$('<li>')：创建li标签
+		$('<li>con</li>'):创建有内容的标签
+		append()：向元素后边添加元素，同appendTO的区别是，append不能添加链式结构
+		$('<li>').appendTo(ul).css()：向ul前添加li
+		$('').trigger('click.xx')：获取名为xx的click事件执行
+		off()：解除事件绑定
+		return false：阻止冒泡和默认事件
+		on('click',{name:'leo'},fn（ev）{console.log(ev.data)})：on点击事件绑定数据,通过ev.data获取到{name：leo}
+		p.on('click','li',fn):
+		stop().animate(): 
+		$('').each(fn)
+		$.each(arr,fn(参数1，参数2))：参数1：数组的下标数；参数2：数组每一项
+		offset().top：到浏览器的距离
+		position().top：到定位父级的距离
+		innerHeight():div内容高度，不包含border和padding
+		outerHeight(true);div内容高度+padding+border+margin(参数为TRUE就加margin)
+		children
+		parents();所有父级元素，如果有参数，就是到该参数为止的父级
+		closest();包括自身，最近的父级，有参数就是到该参数为止的最近的父级
+		index
+		find();
+		$.extend(object1，object2);有配置走配置，没配置走默认  ，同ES6的对象方法Object.assign()几乎相同，可以浅克隆，和走配置
+		$.extend(true,object1，object2);深拷贝
+		$.extend([]，object2)浅拷贝
+		$.extend还可以通过它来扩展插件
+	*/
+	
+	/*
+		如何解决触发某个元素事件的时候继承另一个元素下同一个事件多个函数的某一个函数。 
+	*/
+	$('#box').on('click.a',function(){
+		      alert('1');
+	});
+	
+	$('#box').on('click',function(){
+		alert('2');
+	});
+	
+	$('#box2').click(function(){
+		$('#box').trigger('click.a');
+		
+		$('#box2').off();
+	});
+	
+	
+	
+	
+	
+	
+	
+</script>
+</body>
+</html>
